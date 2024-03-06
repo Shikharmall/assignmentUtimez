@@ -38,8 +38,18 @@ export default function App() {
       setIsEmpty(true);
     } else {
       //if(data.)
-      console.log(typeof data);
-      setNewArray([...newArray, data]);
+      //console.log(typeof data);
+      //setNewArray([...newArray, data]);
+
+      const parsedValue = parseInt(data, 10);
+
+      if (!isNaN(parsedValue)) {
+        setNewArray1((prevArray) => [...prevArray, parsedValue]);
+      } else {
+        setNewArray((prevArray) => [...prevArray, data]);
+      }
+
+      setIsEmpty(false);
       setData("");
     }
   };
